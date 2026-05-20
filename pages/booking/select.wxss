@@ -1,0 +1,175 @@
+.page-booking-select {
+  padding-bottom: 120rpx;
+}
+
+/* 步骤条 */
+.steps {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 60rpx;
+  background: #fff;
+  margin-bottom: 16rpx;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.step-num {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: #e8e8e8;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+.step.active .step-num {
+  background: #3D7BFF;
+  color: #fff;
+}
+.step text {
+  font-size: 22rpx;
+  color: #999;
+}
+.step.active text {
+  color: #3D7BFF;
+}
+.step-line {
+  flex: 1;
+  height: 2rpx;
+  background: #e8e8e8;
+  margin: 0 20rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 通用 */
+.section {
+  margin: 16rpx 20rpx;
+}
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+/* 服务选项 */
+.service-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 24rpx;
+  border-radius: 12rpx;
+  margin-bottom: 12rpx;
+  border: 2rpx solid transparent;
+}
+.service-option.active {
+  border-color: #3D7BFF;
+  background: #F5F8FF;
+}
+.option-left {
+  display: flex;
+  flex-direction: column;
+}
+.option-name {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.option-duration {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+.option-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+.option-price {
+  font-size: 32rpx;
+  color: #FF4757;
+  font-weight: 600;
+}
+.option-check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #3D7BFF;
+}
+.service-option.active .option-check {
+  background: #3D7BFF;
+  color: #fff;
+  border-color: #3D7BFF;
+}
+
+/* 医生选项 */
+.doctor-option {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 12rpx;
+  border: 2rpx solid transparent;
+}
+.doctor-option.active {
+  border-color: #3D7BFF;
+  background: #F5F8FF;
+}
+.doctor-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background: #e8f0ff;
+}
+.doctor-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.doctor-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.doctor-title {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+.doctor-check {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: #3D7BFF;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+
+/* 底部 */
+.bottom-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx 32rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 12rpx rgba(0,0,0,0.06);
+}
+.full-width {
+  width: 100%;
+}

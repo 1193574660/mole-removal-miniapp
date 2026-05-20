@@ -1,0 +1,86 @@
+.page-calendar {
+  padding-bottom: 120rpx;
+}
+
+/* 步骤条 */
+.steps {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 60rpx;
+  background: #fff;
+  margin-bottom: 16rpx;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.step-num {
+  width: 48rpx; height: 48rpx;
+  border-radius: 50%;
+  background: #e8e8e8; color: #999;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24rpx; font-weight: 600;
+  margin-bottom: 8rpx;
+}
+.step.active .step-num { background: #3D7BFF; color: #fff; }
+.step.done .step-num { background: #2ED573; color: #fff; }
+.step text { font-size: 22rpx; color: #999; }
+.step.active text { color: #3D7BFF; }
+.step.done text { color: #2ED573; }
+.step-line {
+  flex: 1; height: 2rpx; background: #e8e8e8;
+  margin: 0 20rpx; margin-bottom: 20rpx;
+}
+.step-line.done { background: #2ED573; }
+
+/* 日历 */
+.calendar-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 20rpx;
+}
+.cal-title { font-size: 32rpx; font-weight: 700; }
+.cal-nav { font-size: 40rpx; color: #3D7BFF; padding: 0 16rpx; }
+.weekday-row {
+  display: flex; justify-content: space-around;
+  padding: 10rpx 0; border-bottom: 1rpx solid #f0f0f0;
+}
+.weekday { font-size: 24rpx; color: #999; width: 14.28%; text-align: center; }
+.day-grid {
+  display: flex; flex-wrap: wrap; padding-top: 10rpx;
+}
+.day-cell {
+  width: 14.28%; height: 80rpx;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28rpx; color: #333; border-radius: 12rpx;
+  box-sizing: border-box;
+}
+.day-cell.empty { /* no content */ }
+.day-cell.disabled { color: #ddd; }
+.day-cell.selected {
+  background: #3D7BFF; color: #fff; font-weight: 600;
+}
+
+/* 时段 */
+.section { margin: 16rpx 20rpx; }
+.section-title { font-size: 30rpx; font-weight: 700; margin-bottom: 16rpx; display: block; }
+.slot-grid { display: flex; flex-wrap: wrap; gap: 16rpx; }
+.slot-item {
+  width: calc(33.33% - 12rpx); padding: 20rpx 0;
+  text-align: center; background: #fff; border-radius: 12rpx;
+  border: 2rpx solid #eee;
+  display: flex; flex-direction: column; gap: 4rpx;
+}
+.slot-item.active { border-color: #3D7BFF; background: #F5F8FF; }
+.slot-item.disabled { background: #f9f9f9; color: #ccc; }
+.slot-time { font-size: 26rpx; font-weight: 600; }
+.slot-info { font-size: 20rpx; color: #999; }
+
+/* 底部 */
+.bottom-fixed {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 16rpx 32rpx;
+  background: #fff; box-shadow: 0 -2rpx 12rpx rgba(0,0,0,0.06);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.bottom-summary { font-size: 26rpx; color: #666; }

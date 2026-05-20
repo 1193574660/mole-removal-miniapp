@@ -1,0 +1,64 @@
+<!-- 首页 -->
+<view class="page-home">
+  <!-- Banner 轮播 -->
+  <swiper class="banner-swiper" indicator-dots autoplay interval="4000" duration="500" circular>
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 分类入口 -->
+  <view class="category-grid">
+    <view class="category-item" wx:for="{{categories}}" wx:key="id"
+          data-id="{{item.id}}" data-name="{{item.name}}"
+          bindtap="goToServiceList">
+      <image class="category-icon" src="{{item.icon}}" mode="aspectFit" />
+      <text class="category-name">{{item.name}}</text>
+    </view>
+    <view class="category-item" bindtap="callConsult">
+      <view class="category-icon category-icon-consult">💬</view>
+      <text class="category-name">在线咨询</text>
+    </view>
+  </view>
+
+  <!-- 热门服务 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">🔥 热门服务</text>
+      <text class="section-more" bindtap="goToServiceList">更多 ›</text>
+    </view>
+    <view class="service-list-h">
+      <view class="service-card-h" wx:for="{{hotServices}}" wx:key="id"
+            bindtap="goToServiceDetail" data-id="{{item.id}}">
+        <image class="service-cover" src="{{item.cover_image || '/images/default-service.png'}}" mode="aspectFill" />
+        <view class="service-info-h">
+          <text class="service-name-h">{{item.name}}</text>
+          <view class="service-meta-h">
+            <text class="price">¥{{item.price / 100}}</text>
+            <text class="service-duration-h">{{item.duration}}分钟</text>
+          </view>
+          <text class="service-sales">已售 {{item.sales_count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐医生 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">👨‍⚕️ 推荐医生</text>
+    </view>
+    <view class="doctor-list">
+      <view class="doctor-card" wx:for="{{featuredDoctors}}" wx:key="id">
+        <image class="doctor-avatar" src="{{item.avatar || '/images/default-doctor.png'}}" mode="aspectFill" />
+        <view class="doctor-info">
+          <text class="doctor-name">{{item.name}}</text>
+          <text class="doctor-title">{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部占位 -->
+  <view style="height: 40rpx;"></view>
+</view>

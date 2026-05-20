@@ -1,0 +1,27 @@
+<!-- 咨询会话列表 -->
+<view class="page-consult-list">
+  <view class="session-list">
+    <view class="session-item" wx:for="{{sessions}}" wx:key="id"
+          bindtap="goToChat" data-id="{{item.doctor_id || item.id}}" data-name="{{item.name}}">
+      <image class="session-avatar" src="{{item.avatar || '/images/default-doctor.png'}}" mode="aspectFill" />
+      <view class="session-body">
+        <view class="session-header">
+          <text class="session-name">{{item.name}}</text>
+          <text class="session-time">{{item.last_time || item.last_msg_time}}</text>
+        </view>
+        <view class="session-footer">
+          <text class="session-preview">{{item.last_msg || item.preview || '暂无消息'}}</text>
+          <view class="session-badge" wx:if="{{item.unread > 0}}">
+            <text>{{item.unread > 99 ? '99+' : item.unread}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!loading && sessions.length === 0}}" class="empty">
+    <text class="empty-icon">💬</text>
+    <text class="empty-text">暂无咨询记录</text>
+    <text class="empty-desc">选择服务后可向医生发起咨询</text>
+  </view>
+</view>

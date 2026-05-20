@@ -1,0 +1,57 @@
+.page-service-list {
+  padding: 16rpx;
+  min-height: 100vh;
+}
+
+.service-item {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.service-image {
+  width: 200rpx;
+  height: 200rpx;
+  background: #e8e8e8;
+  flex-shrink: 0;
+}
+.service-body {
+  flex: 1;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.service-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.service-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.price-wrap {
+  display: flex;
+  align-items: baseline;
+}
+.price-unit {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 4rpx;
+}
+.service-tags {
+  display: flex;
+  gap: 8rpx;
+}

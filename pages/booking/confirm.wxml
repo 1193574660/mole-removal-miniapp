@@ -1,0 +1,66 @@
+<!-- 确认预约页 -->
+<view class="page-confirm">
+  <!-- 步骤条 -->
+  <view class="steps">
+    <view class="step done"><view class="step-num">✓</view><text>选择</text></view>
+    <view class="step-line done"></view>
+    <view class="step done"><view class="step-num">✓</view><text>时间</text></view>
+    <view class="step-line done"></view>
+    <view class="step active"><view class="step-num">3</view><text>确认</text></view>
+  </view>
+
+  <!-- 预约摘要 -->
+  <view class="summary card">
+    <text class="summary-label">预约摘要</text>
+    <view class="summary-item" wx:for="{{services}}" wx:key="id">
+      <text class="s-name">{{item.name}}</text>
+      <text class="s-price">¥{{item.price / 100}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="summary-row">
+      <text class="s-label">医生</text>
+      <text class="s-value">{{doctor.name}} · {{doctor.title}}</text>
+    </view>
+    <view class="summary-row">
+      <text class="s-label">日期</text>
+      <text class="s-value">{{serviceDate}}</text>
+    </view>
+    <view class="summary-row">
+      <text class="s-label">时段</text>
+      <text class="s-value">{{timeSlot}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="summary-row total">
+      <text class="s-label">合计</text>
+      <text class="s-value price">¥{{totalPrice / 100}}</text>
+    </view>
+  </view>
+
+  <!-- 联系人信息 -->
+  <view class="form card">
+    <text class="form-title">联系人信息</text>
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <input class="form-input" placeholder="请输入姓名" value="{{name}}" bindinput="onNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">手机号</text>
+      <input class="form-input" type="number" placeholder="请输入手机号" value="{{phone}}" bindinput="onPhoneInput" maxlength="11" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">备注</text>
+      <input class="form-input" placeholder="如有特殊需求请说明（选填）" value="{{remark}}" bindinput="onRemarkInput" />
+    </view>
+  </view>
+
+  <!-- 底部提交 -->
+  <view class="bottom-fixed">
+    <view class="bottom-total">
+      <text class="total-label">合计</text>
+      <text class="price">¥{{totalPrice / 100}}</text>
+    </view>
+    <button class="btn-primary" bindtap="submitOrder" loading="{{submitting}}" disabled="{{submitting}}">
+      {{submitting ? '提交中...' : '提交订单并支付'}}
+    </button>
+  </view>
+</view>

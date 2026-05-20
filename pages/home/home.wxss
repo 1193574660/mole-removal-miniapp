@@ -1,0 +1,149 @@
+/* 首页样式 */
+.page-home {
+  background: #f5f5f5;
+}
+
+/* Banner */
+.banner-swiper {
+  width: 100%;
+  height: 340rpx;
+}
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 分类入口 */
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 24rpx 12rpx 10rpx;
+  margin-bottom: 16rpx;
+}
+.category-item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+.category-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: #f0f4ff;
+  padding: 12rpx;
+}
+.category-icon-consult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  background: #fff5f0;
+}
+.category-name {
+  font-size: 22rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+/* 通用 section */
+.section {
+  margin: 16rpx;
+  margin-bottom: 0;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 8rpx 16rpx;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #333;
+}
+.section-more {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 横向服务卡片 */
+.service-list-h {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.service-card-h {
+  width: calc(50% - 8rpx);
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.service-cover {
+  width: 100%;
+  height: 200rpx;
+  background: #e8e8e8;
+}
+.service-info-h {
+  padding: 16rpx;
+}
+.service-name-h {
+  font-size: 28rpx;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8rpx;
+}
+.service-meta-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.service-duration-h {
+  font-size: 22rpx;
+  color: #999;
+}
+.service-sales {
+  font-size: 22rpx;
+  color: #bbb;
+  margin-top: 4rpx;
+  display: block;
+}
+
+/* 推荐医生 */
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+.doctor-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.doctor-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #e8f0ff;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+}
+.doctor-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+.doctor-title {
+  font-size: 24rpx;
+  color: #999;
+}

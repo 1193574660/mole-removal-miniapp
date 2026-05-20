@@ -1,0 +1,50 @@
+<!-- 订单列表 -->
+<view class="page-order-list">
+  <!-- Tab 切换 -->
+  <scroll-view class="tab-bar" scroll-x>
+    <view class="tab-item {{activeTab === index ? 'active' : ''}}"
+          wx:for="{{tabs}}" wx:key="id"
+          data-index="{{index}}"
+          bindtap="switchTab">{{item.name}}</view>
+  </scroll-view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view class="order-card card" wx:for="{{orders}}" wx:key="orderNo">
+      <!-- 头部 -->
+      <view class="order-header" bindtap="goToDetail" data-order-no="{{item.orderNo}}">
+        <text class="order-no">订单号：{{item.orderNo}}</text>
+        <text class="{{item.statusInfo.class}}">{{item.statusInfo.text}}</text>
+      </view>
+      <!-- 服务信息 -->
+      <view class="order-service" bindtap="goToDetail" data-order-no="{{item.orderNo}}">
+        <text class="order-service-name">{{item.service_name || '点痣服务'}}</text>
+        <text class="order-service-price">¥{{item.total_price / 100}}</text>
+      </view>
+      <!-- 时间信息 -->
+      <view class="order-info" bindtap="goToDetail" data-order-no="{{item.orderNo}}">
+        <text class="order-date">{{item.service_date}} {{item.time_slot}}</text>
+        <text class="order-doctor">{{item.doctor_name || ''}}</text>
+      </view>
+      <!-- 操作按钮 -->
+      <view class="order-actions" wx:if="{{item.status === 0}}">
+        <button class="btn-outline small" size="mini" bindtap="cancelOrder"
+                data-order-no="{{item.orderNo}}" data-index="{{index}}">取消订单</button>
+        <button class="btn-primary small" size="mini" bindtap="goPay"
+                data-order-no="{{item.orderNo}}">去支付</button>
+      </view>
+      <view class="order-actions" wx:elif="{{item.status === 1}}">
+        <button class="btn-outline small" size="mini" bindtap="cancelOrder"
+                data-order-no="{{item.orderNo}}" data-index="{{index}}">申请退款</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading}}" class="load-more">加载中...</view>
+  <view wx:elif="{{!hasMore && orders.length > 0}}" class="load-more">— 没有更多了 —</view>
+
+  <view wx:if="{{!loading && orders.length === 0}}" class="empty">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">暂无订单</text>
+  </view>
+</view>

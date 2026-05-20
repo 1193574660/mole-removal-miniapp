@@ -1,0 +1,68 @@
+<!-- 订单详情 -->
+<view class="page-order-detail" wx:if="{{!loading && order}}">
+  <!-- 状态 -->
+  <view class="status-bar status-{{order.status}}">
+    <text class="status-icon">{{order.status === 1 ? '⏳' : order.status === 2 ? '✅' : order.status === 3 ? '❌' : '💳'}}</text>
+    <text class="status-text">{{order.statusInfo.text}}</text>
+    <text class="status-desc" wx:if="{{order.status === 0}}">请在30分钟内完成支付</text>
+    <text class="status-desc" wx:if="{{order.status === 1}}">请按时到店服务</text>
+  </view>
+
+  <!-- 预约信息 -->
+  <view class="info-card card">
+    <text class="info-title">预约信息</text>
+    <view class="info-row">
+      <text class="info-label">服务项目</text>
+      <text class="info-value">{{order.service_name}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">服务医生</text>
+      <text class="info-value">{{order.doctor_name}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">服务日期</text>
+      <text class="info-value">{{order.service_date}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">服务时段</text>
+      <text class="info-value">{{order.time_slot}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">金额</text>
+      <text class="info-value price">¥{{order.total_price / 100}}</text>
+    </view>
+    <view class="info-row" wx:if="{{order.remark}}">
+      <text class="info-label">备注</text>
+      <text class="info-value">{{order.remark}}</text>
+    </view>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="info-card card">
+    <text class="info-title">订单信息</text>
+    <view class="info-row">
+      <text class="info-label">订单编号</text>
+      <text class="info-value small">{{order.orderNo}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">下单时间</text>
+      <text class="info-value small">{{order.createdStr}}</text>
+    </view>
+    <view class="info-row" wx:if="{{order.paidStr}}">
+      <text class="info-label">支付时间</text>
+      <text class="info-value small">{{order.paidStr}}</text>
+    </view>
+    <view class="info-row" wx:if="{{order.cancel_reason}}">
+      <text class="info-label">取消原因</text>
+      <text class="info-value small">{{order.cancel_reason}}</text>
+    </view>
+  </view>
+
+  <!-- 操作 -->
+  <view class="detail-actions">
+    <button wx:if="{{order.status === 0}}" class="btn-primary full-width" bindtap="goPay">去支付 ¥{{order.total_price / 100}}</button>
+    <button wx:if="{{order.status === 0}}" class="btn-outline full-width" bindtap="cancelOrder">取消订单</button>
+    <button wx:if="{{order.status === 1}}" class="btn-outline full-width" bindtap="cancelOrder">申请退款</button>
+    <button wx:if="{{order.status === 1 || order.status === 2}}" class="btn-outline full-width" bindtap="callService">联系客服</button>
+  </view>
+</view>

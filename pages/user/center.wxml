@@ -1,0 +1,28 @@
+<!-- 个人中心 -->
+<view class="page-user-center">
+  <!-- 头像区域 -->
+  <view class="user-header" bindtap="goToProfile">
+    <image class="user-avatar" src="{{userInfo.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+    <view class="user-info">
+      <text class="user-name">{{userInfo.nickname || '点击登录'}}</text>
+      <text class="user-phone">{{userInfo.phone || ''}}</text>
+    </view>
+    <text class="user-arrow">›</text>
+  </view>
+
+  <!-- 菜单列表 -->
+  <view class="menu-section">
+    <view class="menu-item" wx:for="{{menuItems}}" wx:key="name"
+          bindtap="onMenuItem" data-item="{{item}}">
+      <text class="menu-icon">{{item.icon}}</text>
+      <text class="menu-name">{{item.name}}</text>
+      <text class="menu-badge" wx:if="{{item.badge}}">{{item.badge}}</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section" wx:if="{{userInfo}}">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>

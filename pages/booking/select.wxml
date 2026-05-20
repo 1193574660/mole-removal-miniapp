@@ -1,0 +1,63 @@
+<!-- 预约选择页：选服务 + 选医生 -->
+<view class="page-booking-select">
+  <!-- 步骤条 -->
+  <view class="steps">
+    <view class="step active">
+      <view class="step-num">1</view>
+      <text>选择</text>
+    </view>
+    <view class="step-line"></view>
+    <view class="step">
+      <view class="step-num">2</view>
+      <text>时间</text>
+    </view>
+    <view class="step-line"></view>
+    <view class="step">
+      <view class="step-num">3</view>
+      <text>确认</text>
+    </view>
+  </view>
+
+  <!-- 服务选择 -->
+  <view class="section">
+    <text class="section-title">选择服务项目</text>
+    <view class="service-options">
+      <view class="service-option {{selectedServiceIds.indexOf(item.id) > -1 ? 'active' : ''}}"
+            wx:for="{{services}}" wx:key="id"
+            data-id="{{item.id}}" bindtap="toggleService">
+        <view class="option-left">
+          <text class="option-name">{{item.name}}</text>
+          <text class="option-duration">约{{item.duration}}分钟</text>
+        </view>
+        <view class="option-right">
+          <text class="option-price">¥{{item.price / 100}}</text>
+          <view class="option-check">
+            <text wx:if="{{selectedServiceIds.indexOf(item.id) > -1}}">✓</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 医生选择 -->
+  <view class="section">
+    <text class="section-title">选择医生</text>
+    <view class="doctor-options">
+      <view class="doctor-option {{selectedDoctorId === item.id ? 'active' : ''}}"
+            wx:for="{{doctors}}" wx:key="id"
+            data-id="{{item.id}}" bindtap="selectDoctor">
+        <image class="doctor-avatar" src="{{item.avatar || '/images/default-doctor.png'}}" mode="aspectFill" />
+        <view class="doctor-info">
+          <text class="doctor-name">{{item.name}}</text>
+          <text class="doctor-title">{{item.title}}</text>
+        </view>
+        <view class="doctor-check" wx:if="{{selectedDoctorId === item.id}}">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-fixed">
+    <button class="btn-primary full-width" bindtap="goNext">下一步：选择时间</button>
+  </view>
+</view>

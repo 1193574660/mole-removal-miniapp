@@ -1,0 +1,34 @@
+<!-- 服务列表页 -->
+<view class="page-service-list">
+  <view class="service-list">
+    <view class="service-item" wx:for="{{services}}" wx:key="id"
+          bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="service-image" src="{{item.cover_image || '/images/default-service.png'}}" mode="aspectFill" />
+      <view class="service-body">
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-desc">{{item.description}}</text>
+        <view class="service-footer">
+          <view class="price-wrap">
+            <text class="price-symbol">¥</text>
+            <text class="price">{{item.price / 100}}</text>
+            <text class="price-unit">起</text>
+          </view>
+          <view class="service-tags">
+            <text class="tag tag-blue">{{item.duration}}分钟</text>
+            <text class="tag tag-green">已售{{item.sales_count}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载更多 -->
+  <view wx:if="{{loading}}" class="load-more">加载中...</view>
+  <view wx:elif="{{!hasMore && services.length > 0}}" class="load-more">— 没有更多了 —</view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{!loading && services.length === 0}}" class="empty">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">暂无服务</text>
+  </view>
+</view>

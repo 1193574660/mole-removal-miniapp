@@ -1,0 +1,58 @@
+<!-- 预约日历页 -->
+<view class="page-calendar">
+  <!-- 步骤条 -->
+  <view class="steps">
+    <view class="step done">
+      <view class="step-num">✓</view><text>选择</text>
+    </view>
+    <view class="step-line done"></view>
+    <view class="step active">
+      <view class="step-num">2</view><text>时间</text>
+    </view>
+    <view class="step-line"></view>
+    <view class="step"><view class="step-num">3</view><text>确认</text></view>
+  </view>
+
+  <!-- 日历 -->
+  <view class="calendar card">
+    <view class="calendar-header">
+      <text class="cal-nav" bindtap="prevMonth">‹</text>
+      <text class="cal-title">{{currentYear}}年{{currentMonth}}月</text>
+      <text class="cal-nav" bindtap="nextMonth">›</text>
+    </view>
+    <view class="weekday-row">
+      <text class="weekday" wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="day-grid">
+      <view class="day-cell {{item.empty ? 'empty' : ''}} {{item.disabled ? 'disabled' : ''}} {{item.selected ? 'selected' : ''}}"
+            wx:for="{{days}}" wx:key="date"
+            data-date="{{item.date}}" data-disabled="{{item.disabled}}"
+            bindtap="selectDay">
+        <text wx:if="{{!item.empty}}">{{item.day}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 时段选择 -->
+  <view class="section" wx:if="{{selectedDate}}">
+    <text class="section-title">选择时段 · {{selectedDate}}</text>
+    <view class="slot-grid">
+      <view class="slot-item {{item.available ? '' : 'disabled'}} {{selectedSlot === item.time_slot ? 'active' : ''}}"
+            wx:for="{{slots}}" wx:key="id"
+            data-slot="{{item.time_slot}}"
+            bindtap="selectSlot">
+        <text class="slot-time">{{item.time_slot}}</text>
+        <text class="slot-info" wx:if="{{item.available}}">余{{item.max_bookings - item.booked_count}}位</text>
+        <text class="slot-info" wx:else>已满</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="bottom-fixed" wx:if="{{selectedDate && selectedSlot}}">
+    <view class="bottom-summary">
+      <text>{{selectedDate}} {{selectedSlot}}</text>
+    </view>
+    <button class="btn-primary" bindtap="goConfirm">下一步：确认预约</button>
+  </view>
+</view>

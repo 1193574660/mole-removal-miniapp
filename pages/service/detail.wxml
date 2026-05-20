@@ -1,0 +1,48 @@
+<!-- 服务详情页 -->
+<view class="page-detail" wx:if="{{!loading}}">
+  <!-- 封面图 -->
+  <image class="detail-cover" src="{{service.cover_image || '/images/default-service.png'}}" mode="aspectFill" />
+
+  <!-- 基本信息 -->
+  <view class="detail-header card">
+    <text class="detail-name">{{service.name}}</text>
+    <view class="detail-tags">
+      <text class="tag tag-blue" wx:for="{{service.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="detail-meta">
+      <view class="price-wrap">
+        <text class="price-symbol">¥</text>
+        <text class="price">{{service.price / 100}}</text>
+      </view>
+      <view class="meta-items">
+        <text class="meta-item">⏱ {{service.duration}}分钟</text>
+        <text class="meta-item">📦 已售{{service.sales_count}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 图文介绍 -->
+  <view class="detail-section card">
+    <text class="section-label">📝 服务详情</text>
+    <view class="detail-content">
+      <rich-text nodes="{{service.description}}"></rich-text>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="detail-section card" wx:if="{{service.notes}}">
+    <text class="section-label">⚠️ 注意事项</text>
+    <view class="notes-content">
+      <rich-text nodes="{{service.notes}}"></rich-text>
+    </view>
+  </view>
+
+  <!-- 底部预约栏 -->
+  <view class="bottom-bar">
+    <view class="bottom-price">
+      <text class="price-symbol">¥</text>
+      <text class="price">{{service.price / 100}}</text>
+    </view>
+    <button class="btn-primary" bindtap="goToBooking">立即预约</button>
+  </view>
+</view>

@@ -1,0 +1,79 @@
+.page-order-detail {
+  padding-bottom: 40rpx;
+}
+
+/* 状态条 */
+.status-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 0;
+  color: #fff;
+}
+.status-0 { background: linear-gradient(135deg, #FF9F43, #FFB56B); }
+.status-1 { background: linear-gradient(135deg, #3D7BFF, #5B9AFF); }
+.status-2 { background: linear-gradient(135deg, #2ED573, #5FE88E); }
+.status-3 { background: linear-gradient(135deg, #999, #bbb); }
+.status-4 { background: linear-gradient(135deg, #FF9F43, #FFB56B); }
+.status-icon {
+  font-size: 64rpx;
+  margin-bottom: 12rpx;
+}
+.status-text {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.status-desc {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  opacity: 0.85;
+}
+
+/* 信息卡片 */
+.info-card {
+  margin: 16rpx 20rpx;
+}
+.info-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+.info-label {
+  font-size: 26rpx;
+  color: #999;
+}
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+  max-width: 55%;
+}
+.info-value.price {
+  color: #FF4757;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.info-value.small {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 操作 */
+.detail-actions {
+  margin: 32rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+.full-width {
+  width: 100% !important;
+}

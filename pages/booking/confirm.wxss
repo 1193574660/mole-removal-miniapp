@@ -1,0 +1,65 @@
+.page-confirm { padding-bottom: 130rpx; }
+
+/* 步骤条 */
+.steps {
+  display: flex; align-items: center;
+  padding: 30rpx 60rpx; background: #fff; margin-bottom: 16rpx;
+}
+.step {
+  display: flex; flex-direction: column; align-items: center;
+}
+.step-num {
+  width: 48rpx; height: 48rpx; border-radius: 50%;
+  background: #e8e8e8; color: #999;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24rpx; font-weight: 600; margin-bottom: 8rpx;
+}
+.step.active .step-num { background: #3D7BFF; color: #fff; }
+.step.done .step-num { background: #2ED573; color: #fff; }
+.step text { font-size: 22rpx; color: #999; }
+.step.active text { color: #3D7BFF; }
+.step.done text { color: #2ED573; }
+.step-line {
+  flex: 1; height: 2rpx; background: #e8e8e8;
+  margin: 0 20rpx; margin-bottom: 20rpx;
+}
+.step-line.done { background: #2ED573; }
+
+/* 摘要 */
+.summary { margin: 16rpx 20rpx; }
+.summary-label { font-size: 30rpx; font-weight: 700; display: block; margin-bottom: 16rpx; }
+.summary-item {
+  display: flex; justify-content: space-between;
+  padding: 8rpx 0; font-size: 28rpx;
+}
+.s-name { color: #333; }
+.s-price { color: #FF4757; font-weight: 500; }
+.summary-row {
+  display: flex; justify-content: space-between;
+  padding: 8rpx 0; font-size: 28rpx;
+}
+.summary-row.total { padding-top: 16rpx; }
+.s-label { color: #999; }
+.s-value { color: #333; }
+.s-value.price { font-size: 36rpx; font-weight: 700; color: #FF4757; }
+
+/* 表单 */
+.form { margin: 16rpx 20rpx; }
+.form-title { font-size: 30rpx; font-weight: 700; display: block; margin-bottom: 16rpx; }
+.form-item {
+  display: flex; align-items: center;
+  padding: 20rpx 0; border-bottom: 1rpx solid #f0f0f0;
+}
+.form-item:last-child { border-bottom: none; }
+.form-label { width: 120rpx; font-size: 28rpx; color: #666; flex-shrink: 0; }
+.form-input { flex: 1; font-size: 28rpx; color: #333; }
+
+/* 底部 */
+.bottom-fixed {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 16rpx 32rpx; background: #fff;
+  box-shadow: 0 -2rpx 12rpx rgba(0,0,0,0.06);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.bottom-total { display: flex; align-items: baseline; gap: 8rpx; }
+.total-label { font-size: 26rpx; color: #666; }
