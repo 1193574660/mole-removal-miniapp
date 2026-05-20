@@ -1,7 +1,7 @@
 // API 配置文件 - 部署时修改此处
 const config = {
   // 后端 API 基础地址
-  apiBase: 'https://api.example.com/v1',
+  apiBase: 'https://your-api-domain.com/v1',
 
   // 图片资源基础地址
   imageBase: 'https://cdn.example.com',

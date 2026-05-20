@@ -36,14 +36,14 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/1193574660/mole-removal-miniapp.git
+git clone git@github.com:1193574660/mole-removal-miniapp.git
 ```
 
 ### 2. 打开项目
 
 1. 启动微信开发者工具
 2. 选择「导入项目」→ 指向项目根目录
-3. AppID 填入你的小程序 AppID（或 `touristappid` 测试）
+3. AppID 填入 `wx08fa0cfd66161493`
 
 ### 3. 修改配置
 
